@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">AdminApp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Dashboard<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Productos</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav profile" *ngIf="user !=n ull">
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="# " id="profileDropdown " role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="img-fluid" width="32" src="assets/user.png">
+                    <span class="username">{{user.nombre}}</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                    <button class="dropdown-item" (click)="logout()">Logout</button>
+                    <a class="dropdown-item" href="#"></a>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</nav>
