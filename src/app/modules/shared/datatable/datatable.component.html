@@ -1,0 +1,19 @@
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" *ngFor="let header of headers ">{{header}}</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of rows">
+            <td [scope]="i == 0 ? 'row': ''" *ngFor="let item of row; index as i">{{ item}}</td>
+            <td>
+                <div class="btn-group" role="group">
+                    <button type="button" (click)="edit(row)" class="btn btn-warning">Editar</button>
+                    <button type="button" (click)="delete(row[0])" class="btn btn-danger">Eliminar</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

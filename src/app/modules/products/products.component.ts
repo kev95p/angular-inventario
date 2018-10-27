@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'app/services/products.service';
-import { FormGroup, FormBuilder, Validators } from '../../../../node_modules/@angular/forms';
+import { Product } from 'app/models/Product';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-declare var $: any;
-
+declare var $;
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-
+  public productos: Array<Product>;
+  public cabeceras = ['Id', 'Nombre', 'Stock', 'Unidad'];
   productForm: FormGroup;
   producto: any;
   constructor(private formBuilder: FormBuilder , public productsService: ProductsService) {
@@ -25,11 +26,26 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.productsService.getAll().subscribe((res) => {
+      this.productos = res.products;
+
+    });
   }
 
-  save() {
-    $('#exampleModal').modal('hide');
-    this.producto = JSON.stringify(this.productForm.value);
+  onEdit(row) {
+    console.log(row);
+  }
+
+  onDelete(id) {
+    console.log(id);
+  }
+
+  agregar() {
+    $('#formModal').modal('show');
+  }
+
+  guardar() {
+
   }
 
 }

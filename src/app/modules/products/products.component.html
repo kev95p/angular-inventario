@@ -1,44 +1,45 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" 
-data-target="#exampleModal">
-    Add product
-</button>
-
-<p>{{ producto }}</p>
+<div class="row">
+    <div class="col">
+        <button type="button" (click)="agregar()" class="btn btn-success btn-agregar">Agregar</button>
+        <app-datatable class="datatable" [items]="productos" [headers]="cabeceras" (onEdit)="onEdit($event)" (onDelete)="onDelete($event)"></app-datatable>
+    </div>
+</div>
 
 <!--modal-->
-<div id="exampleModal" class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Product</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form [formGroup]="productForm">
-              <div class="form-group">
-                  <label for="productName">Product name</label>
-                  <input formControlName="productName" type="text" id="productName" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="stock">Stock</label>
-                <input formControlName="stock" type="text" class="form-control">
+<div id="formModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Product</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="productForm">
+            <div class="form-group">
+                <label for="productName">Product name</label>
+                <input formControlName="productName" type="text" id="productName" class="form-control">
             </div>
             <div class="form-group">
-                    <label for="unit">Unit</label>
-                    <select formControlName="unit" class="form-control">
-                        <option value="Unidad">Unidad</option>
-                        <option value="Caja">Caja</option>
-                        <option value="Botella">Botella</option>
-                        <option value="Libra">Libra</option>
-                    </select>
-                </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="save()">Save</button>
-        </div>
+              <label for="stock">Stock</label>
+              <input formControlName="stock" type="text" class="form-control">
+          </div>
+          <div class="form-group">
+                  <label for="unit">Unit</label>
+                  <select formControlName="unit" class="form-control">
+                      <option value="Unidad">Unidad</option>
+                      <option value="Caja">Caja</option>
+                      <option value="Botella">Botella</option>
+                      <option value="Libra">Libra</option>
+                  </select>
+              </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="save()">Save</button>
       </div>
     </div>
   </div>
+</div>
+
