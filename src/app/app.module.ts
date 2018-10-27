@@ -17,17 +17,21 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { UserService } from "./services/user.service";
 import { ProductsService } from './services/products.service';
+import { ProductsModule } from './modules/products/products.module';
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
     PlantillaModule,
+    ProductsModule,
     DashboardModule,
     AuthModule
   ],

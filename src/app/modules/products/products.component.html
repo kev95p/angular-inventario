@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col">
+        <button type="button" (click)="agregar()" class="btn btn-success btn-agregar">Agregar</button>
+        <app-datatable class="datatable" [items]="productos" [headers]="cabeceras" (onEdit)="onEdit($event)" (onDelete)="onDelete($event)"></app-datatable>
+    </div>
+</div>
+
+
+<!--modal-->
+<div id="formModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Nuevo Producto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Email</label>
+                            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Password</label>
+                            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+                <button type="button" (click)="guardar()" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
